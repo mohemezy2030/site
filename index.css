@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 20% 4%;
+    --foreground: 210 20% 92%;
+
+    --card: 220 18% 7%;
+    --card-foreground: 210 20% 92%;
+
+    --popover: 220 18% 7%;
+    --popover-foreground: 210 20% 92%;
+
+    --primary: 160 84% 39%;
+    --primary-foreground: 220 20% 4%;
+
+    --secondary: 220 16% 12%;
+    --secondary-foreground: 210 20% 85%;
+
+    --muted: 220 14% 10%;
+    --muted-foreground: 215 12% 50%;
+
+    --accent: 38 92% 50%;
+    --accent-foreground: 220 20% 4%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 14% 14%;
+    --input: 220 14% 14%;
+    --ring: 160 84% 39%;
+
+    --radius: 0.75rem;
+
+    --chart-up: 160 84% 39%;
+    --chart-down: 0 72% 51%;
+    --chart-warning: 38 92% 50%;
+    --chart-info: 210 100% 56%;
+
+    --glow-primary: 0 0 30px hsl(160 84% 39% / 0.15);
+    --glow-accent: 0 0 30px hsl(38 92% 50% / 0.15);
+
+    --sidebar-background: 220 18% 5%;
+    --sidebar-foreground: 210 20% 85%;
+    --sidebar-primary: 160 84% 39%;
+    --sidebar-primary-foreground: 220 20% 4%;
+    --sidebar-accent: 220 14% 10%;
+    --sidebar-accent-foreground: 210 20% 85%;
+    --sidebar-border: 220 14% 14%;
+    --sidebar-ring: 160 84% 39%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-family: 'Cairo', sans-serif;
+    direction: rtl;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cairo', sans-serif;
+  }
+
+  code, pre, .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+@layer utilities {
+  .text-gradient-primary {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(160 84% 39%), hsl(160 84% 55%));
+  }
+
+  .text-gradient-accent {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(38 92% 50%), hsl(38 92% 65%));
+  }
+
+  .bg-grid {
+    background-image: 
+      linear-gradient(hsl(220 14% 14% / 0.5) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(220 14% 14% / 0.5) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  .glow-primary {
+    box-shadow: var(--glow-primary);
+  }
+
+  .glow-accent {
+    box-shadow: var(--glow-accent);
+  }
+
+  .glass {
+    @apply bg-card/60 backdrop-blur-xl border border-border/50;
+  }
+}
